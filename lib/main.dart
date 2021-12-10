@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myclone/page.dart';
+
 void main() {
   runApp(MaterialApp(
     home: Home(),
@@ -14,6 +15,7 @@ class Home extends StatefulWidget {
 }
 
 class _State extends State<Home> {
+  // _formKey = GlobalKey<FormState>();
   bool toggle= false;
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -70,7 +72,7 @@ class _State extends State<Home> {
             height:50, //height of button
             width: 350,
 
-            child: TextField(
+            child: TextFormField(
 
               controller: nameController,
               decoration: const InputDecoration(
@@ -86,7 +88,7 @@ class _State extends State<Home> {
             SizedBox(
               height:50, //height of button
               width:350,
-              child: TextField(
+              child: TextFormField(
               controller: passwordController,
 
                 obscureText: !toggle,
@@ -243,6 +245,16 @@ class _State extends State<Home> {
               ),
             ],
           ),
+          // Form(
+          //     autovalidateMode: AutovalidateMode.disabled,
+          //     key: _formKey,
+          //     child: Column(
+          //       children: [TextFormField(.
+          //         validator: (string val){
+          //
+          //         },
+          //       )],
+          //     )),
     ],
       ),
       ],
