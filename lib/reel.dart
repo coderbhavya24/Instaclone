@@ -97,6 +97,11 @@ class reels extends StatelessWidget {
             margin: EdgeInsets.only(top: 100),
             child: Icon(Icons.live_tv,
               size: 85,),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 100),
+            child: Icon(Icons.live_tv,
+              size: 85,),
           )
 
         ],
