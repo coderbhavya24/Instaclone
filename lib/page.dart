@@ -6,6 +6,8 @@ import 'package:myclone/search.dart';
 import 'package:myclone/activity.dart';
 import 'package:myclone/reel.dart';
 
+import 'profile.dart';
+
 class pages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -65,9 +67,19 @@ class pages extends StatelessWidget {
               icon: Icon(Icons.favorite_outline_sharp),
               iconSize: 30,
             ),
-            const CircleAvatar(
-              radius: 18,
-              backgroundImage: AssetImage('images/myself.jpeg'),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return ProfilePage();
+                  }),
+                );
+              },
+              child: CircleAvatar(
+                radius: 18,
+                backgroundImage: AssetImage('images/myself.jpeg'),
+              ),
             ),
             const SizedBox(),
           ],

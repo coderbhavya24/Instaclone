@@ -4,6 +4,8 @@ import 'package:myclone/activity.dart';
 import 'package:myclone/reel.dart';
 import 'package:myclone/page.dart';
 
+import 'profile.dart';
+
 class search extends StatelessWidget {
 
   List<String> imgs = ['images/harsh.jfif','images/tanmay.jfif','images/akash.jfif','images/carry.jfif'];
@@ -12,69 +14,79 @@ class search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.white,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const SizedBox(),
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) {
-                    return pages();
-                  }),
-                );
-              },
-              icon: Icon(Icons.home_outlined),
-              iconSize: 35,
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) {
-                    return search();
-                  }),
-                );
-              },
-              icon: Icon(Icons.search),
-              iconSize: 30,
-              color: Colors.black,
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) {
-                    return reels();
-                  }),
-                );
-              },
-              icon: Icon(Icons.live_tv),
-              iconSize: 30,
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) {
-                    return activity();
-                  }),
-                );
-              },
-              icon: Icon(Icons.favorite_outline_sharp),
-              iconSize: 30,
-            ),
-            const CircleAvatar(
-              radius: 18,
-              backgroundImage: AssetImage('images/myself.jpeg'),
-            ),
-            const SizedBox(),
-          ],
+        bottomNavigationBar: BottomAppBar(
+          color: Colors.white,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const SizedBox(),
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return pages();
+                    }),
+                  );
+                },
+                icon: Icon(Icons.home_outlined),
+                iconSize: 35,
+              ),
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return search();
+                    }),
+                  );
+                },
+                icon: Icon(Icons.search),
+                iconSize: 30,
+                color: Colors.black,
+              ),
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return reels();
+                    }),
+                  );
+                },
+                icon: Icon(Icons.live_tv),
+                iconSize: 30,
+              ),
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return activity();
+                    }),
+                  );
+                },
+                icon: Icon(Icons.favorite_outline_sharp),
+                iconSize: 30,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return ProfilePage();
+                    }),
+                  );
+                },
+                child: CircleAvatar(
+                  radius: 18,
+                  backgroundImage: AssetImage('images/myself.jpeg'),
+                ),
+              ),
+              const SizedBox(),
+            ],
+          ),
         ),
-      ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         child: Column(
