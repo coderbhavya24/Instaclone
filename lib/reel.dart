@@ -98,36 +98,13 @@ class reels extends StatelessWidget {
             ],
           ),
         ),
-      body: Column(
+      body: Stack(
         children: [
-          Container(
-            margin: EdgeInsets.only(top: 50),
-            child: Icon(Icons.live_tv,
-              size: 85,),
+          Image.asset('images/reel_page.jpeg',
+          fit: BoxFit.contain,
           ),
-          Container(
-            margin: EdgeInsets.only(top: 100),
-            child: Icon(Icons.live_tv,
-              size: 85,),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 100),
-            child: Icon(Icons.live_tv,
-              size: 85,),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 100),
-            child: Icon(Icons.live_tv,
-              size: 85,),
-          )
-
         ],
-      )
-
-
-
-
-
+      ),
     );
   }
 }

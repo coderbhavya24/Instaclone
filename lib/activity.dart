@@ -16,7 +16,7 @@ class _activityState extends State<activity> {
   bool follow1 = true;
   bool follow2 = true;
   bool follow3 = true;
-  bool follow4 = true, follow5 = true, follow6 = true , follow7 = true;
+  bool follow4 = true, follow5 = true, follow6 = true , follow7 = true, follow8=false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -447,12 +447,12 @@ class _activityState extends State<activity> {
                   onTap: () {
                     setState(() {
                       // Toggle light when tapped.
-                      follow = !follow;
+                      follow8 = !follow8;
                     });
                   },
                   child: Row(
                     children: [
-                      follow ? Container(
+                      follow8 ? Container(
 
                         child: Center(child:
                         Text('Follow',
@@ -1230,10 +1230,9 @@ class _activityState extends State<activity> {
                   },
                   child: Row(
                     children: [
-                      follow2 ? Row(
+                      follow5 ? Row(
                         children: [
                           Container(
-
                             child: Center(child:
                             Text('Confirm',
                               style: TextStyle(
