@@ -9,6 +9,7 @@ import 'profile.dart';
 class reels extends StatelessWidget {
   // late VideoPlayerController _controller;
   // @override
+  int curr=0;
   // void initState() {
   //   super.initState();
   //   // Pointing the video controller to our local asset.
@@ -26,7 +27,7 @@ class reels extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: BottomAppBar(
-          color: Colors.white,
+          color: Colors.black,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -40,7 +41,8 @@ class reels extends StatelessWidget {
                     }),
                   );
                 },
-                icon: Icon(Icons.home_outlined),
+                icon: Icon(Icons.home_outlined,
+                color: Colors.white,),
                 iconSize: 35,
               ),
               IconButton(
@@ -52,7 +54,7 @@ class reels extends StatelessWidget {
                     }),
                   );
                 },
-                icon: Icon(Icons.search),
+                icon: Icon(Icons.search, color: Colors.white),
                 iconSize: 30,
                 color: Colors.black,
               ),
@@ -67,6 +69,7 @@ class reels extends StatelessWidget {
                 },
                 icon: Icon(Icons.live_tv),
                 iconSize: 30,
+                color: Colors.white,
               ),
               IconButton(
                 onPressed: () {
@@ -77,7 +80,7 @@ class reels extends StatelessWidget {
                     }),
                   );
                 },
-                icon: Icon(Icons.favorite_outline_sharp),
+                icon: Icon(Icons.favorite_outline_sharp,  color: Colors.white),
                 iconSize: 30,
               ),
               GestureDetector(
@@ -98,13 +101,70 @@ class reels extends StatelessWidget {
             ],
           ),
         ),
-      body: Stack(
-        children: [
-          Image.asset('images/reel_page.jpeg',
-          fit: BoxFit.contain,
-          ),
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: const Text(" Reels",
+          style: TextStyle(
+            // fontFamily: 'Sch',
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+            fontSize: 25,
+          ),),
+        actions: [
+          IconButton(
+            onPressed: (){},
+            icon: const Icon(
+              Icons.camera_alt,
+              color: Colors.white,
+              size: 30,
+            ),
+          )
         ],
       ),
+      body: PageView.builder(
+        scrollDirection: Axis.vertical,
+          itemCount: 10,
+          itemBuilder: (context,index){
+            return Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black),
+                image: DecorationImage( fit: BoxFit.cover,image:AssetImage('images/reels${index%3}.jpeg')) ,
+              ),
+              child: Stack(
+                children: [
+
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: 70,
+                            width: 270,
+                            decoration: BoxDecoration(
+                              color: Colors.yellow,
+                            ),
+                          ),
+                          Container(
+                            height: 270,
+                            width: 70,
+                            decoration: BoxDecoration(
+                              color: Colors.blue,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 12,)
+                    ],
+                  )
+                ],
+              )
+            );
+      })
     );
   }
 }
