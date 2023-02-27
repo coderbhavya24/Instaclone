@@ -6,23 +6,18 @@ import 'package:myclone/page.dart';
 import 'profile.dart';
 
 
-class reels extends StatelessWidget {
-  // late VideoPlayerController _controller;
-  // @override
-  int curr=0;
-  // void initState() {
-  //   super.initState();
-  //   // Pointing the video controller to our local asset.
-  //   _controller = VideoPlayerController.asset("images/new_vedio.mp4")
-  //     ..initialize().then((_) {
-  //       // Once the video has been loaded we play the video and set looping to true.
-  //       _controller.play();
-  //       _controller.setLooping(true);
-  //       // Ensure the first frame is shown after the video is initialized.
-  //       setState(() {});
-  //     });
-  // }
+class reels extends StatefulWidget {
+  @override
+  State<reels> createState() => _reelsState();
+}
 
+class _reelsState extends State<reels> {
+  // late VideoPlayerController _controller;
+  int curr=0;
+
+  bool like=true;
+
+  // void initState() {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -142,18 +137,79 @@ class reels extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            height: 70,
-                            width: 270,
-                            decoration: BoxDecoration(
-                              color: Colors.yellow,
-                            ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              SizedBox(height: 180,),
+                              Container(
+                                height: 80,
+                                width: 270,
+                                decoration: BoxDecoration(
+                                  color: Colors.yellow,
+                                ),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      children: [
+
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
                           Container(
                             height: 270,
                             width: 70,
                             decoration: BoxDecoration(
-                              color: Colors.blue,
+
+                              color: Colors.transparent,
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Column(
+                                  children: [
+                                    IconButton(
+                                        onPressed: (){
+                                          setState((){
+                                            like=!like;
+                                          });
+                                    }, icon: Icon( like? Icons.favorite: Icons.favorite_border),
+                                    iconSize: 38, color :like? Colors.red: Colors.white ),
+                                    Text('1.3k', style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),),
+                                  ],
+                                ),
+                                // SizedBox(height: 15,),
+                                Column(
+                                  children: [
+                                    Icon(Icons.message_outlined, color: Colors.white,size: 34,),
+                                    Text('700', style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),),
+                                  ],
+                                ),
+                                // SizedBox(height: 12,),
+                                Icon(Icons.share,color: Colors.white, size: 34,),
+                                Icon(Icons.linear_scale_outlined, color:  Colors.white , size: 34,),
+                                Container(
+                                  height: 35,
+                                  width: 35,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(color: Colors.white,width: 2.5),
+                                    image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: AssetImage('images/reels${index%3}.jpeg'),
+                                    )
+                                  ),
+                                )
+                              ],
                             ),
                           ),
                         ],
