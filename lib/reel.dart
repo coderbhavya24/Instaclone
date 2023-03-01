@@ -14,8 +14,19 @@ class reels extends StatefulWidget {
 class _reelsState extends State<reels> {
   // late VideoPlayerController _controller;
   int curr=0;
-
-  bool like=true;
+List name =[
+  'TheAkashGupta','HarshBeniwal','TheFlyingBeast'
+];
+List img =[
+  'images/akash.jfif','images/harsh.jfif','images/beast.jpg'
+];
+ var like =[
+    false,false,false,false,false,false,false,false,false,false
+  ];
+  var foll =[
+    false,false,false,false,false,false,false,false,false,false
+  ];
+  // bool like=true;
 
   // void initState() {
   @override
@@ -142,10 +153,10 @@ class _reelsState extends State<reels> {
                             children: [
                               SizedBox(height: 180,),
                               Container(
-                                height: 120,
+                                height: 110,
                                 width: 270,
                                 decoration: BoxDecoration(
-                                  color: Colors.yellow,
+                                  color: Colors.black,
                                 ),
                                 child: Column(
                                   children: [
@@ -153,19 +164,78 @@ class _reelsState extends State<reels> {
                                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                                       children: [
                                         CircleAvatar(
-                                          radius: 16,
-                                          backgroundImage: AssetImage('images/akash.jfif'),
+                                          radius: 18,
+                                          backgroundImage: AssetImage(img[index%3]),
                                         ),
 
-                                        Text('TheAkashGupta',
+                                        Text(name[index%3],
                                         style: TextStyle(
-                                          fontSize: 15,
+                                          fontSize: 16,
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,
                                         ),),
+
+                                        GestureDetector(
+                                          onTap: (){
+                                            setState(() {
+                                              foll[index]=!foll[index];
+                                            });
+                                          },
+                                          child: !foll[index] ?Container(
+                                            height: 28,
+                                            width: 85,
+                                            decoration: BoxDecoration(
+                                              border: Border.all(color: Colors.white, width: 3),
+                                              borderRadius: BorderRadius.circular(12),
+                                            ),
+                                            child: Center(
+                                              child: Text('Follow',
+                                                style: TextStyle(
+                                                  fontSize: 15,
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                ),),
+                                            ),
+                                          ):  Container(
+                                          height: 28,
+                                          width: 95,
+                                          decoration: BoxDecoration(
+                                            border: Border.all(color: Colors.white, width: 3),
+                                            borderRadius: BorderRadius.circular(12),
+                                          ),
+                                          child: Center(
+                                            child: Text('Following',
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                              ),),
+                                          ),
+                                        ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: 6,),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        SizedBox(width: 14,),
+                                        Text('lorem ipsum dispusm sum chip..',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 17,
+                                        ),),
+                                      ],
+                                    ),
+                                    SizedBox(height: 10,),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        SizedBox(width: 18,),
                                         Container(
                                           height: 28,
-                                          width: 85,
+                                          width: 145,
                                           decoration: BoxDecoration(
                                             border: Border.all(color: Colors.white, width: 3),
                                             borderRadius: BorderRadius.circular(12),
@@ -178,9 +248,9 @@ class _reelsState extends State<reels> {
                                                 fontWeight: FontWeight.bold,
                                               ),),
                                           ),
-                                        )
+                                        ),
                                       ],
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),
@@ -201,10 +271,10 @@ class _reelsState extends State<reels> {
                                     IconButton(
                                         onPressed: (){
                                           setState((){
-                                            like=!like;
+                                            like[index]=!like[index];
                                           });
-                                    }, icon: Icon( like? Icons.favorite: Icons.favorite_border),
-                                    iconSize: 38, color :like? Colors.red: Colors.white ),
+                                    }, icon: Icon( like[index]? Icons.favorite: Icons.favorite_border),
+                                    iconSize: 38, color :like[index]? Colors.red: Colors.white ),
                                     Text('1.3k', style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
@@ -232,7 +302,7 @@ class _reelsState extends State<reels> {
                                     border: Border.all(color: Colors.white,width: 2.5),
                                     image: DecorationImage(
                                       fit: BoxFit.cover,
-                                      image: AssetImage('images/reels${index%3}.jpeg'),
+                                      image: AssetImage(img[index%3]),
                                     )
                                   ),
                                 )
@@ -241,7 +311,7 @@ class _reelsState extends State<reels> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 12,)
+                      SizedBox(height: 4,)
                     ],
                   )
                 ],
