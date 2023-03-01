@@ -142,7 +142,7 @@ class _reelsState extends State<reels> {
                             children: [
                               SizedBox(height: 180,),
                               Container(
-                                height: 80,
+                                height: 120,
                                 width: 270,
                                 decoration: BoxDecoration(
                                   color: Colors.yellow,
@@ -150,8 +150,35 @@ class _reelsState extends State<reels> {
                                 child: Column(
                                   children: [
                                     Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                                       children: [
+                                        CircleAvatar(
+                                          radius: 16,
+                                          backgroundImage: AssetImage('images/akash.jfif'),
+                                        ),
 
+                                        Text('TheAkashGupta',
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),),
+                                        Container(
+                                          height: 28,
+                                          width: 85,
+                                          decoration: BoxDecoration(
+                                            border: Border.all(color: Colors.white, width: 3),
+                                            borderRadius: BorderRadius.circular(12),
+                                          ),
+                                          child: Center(
+                                            child: Text('Follow',
+                                              style: TextStyle(
+                                                fontSize: 15,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                              ),),
+                                          ),
+                                        )
                                       ],
                                     )
                                   ],
