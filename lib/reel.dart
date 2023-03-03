@@ -156,7 +156,7 @@ List img =[
                                 height: 110,
                                 width: 270,
                                 decoration: BoxDecoration(
-                                  color: Colors.black,
+                                  color: Colors.transparent,
                                 ),
                                 child: Column(
                                   children: [

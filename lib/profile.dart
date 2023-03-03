@@ -20,7 +20,7 @@ class _ProfilePageState extends State<ProfilePage> {
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         elevation: 0,
-        title: const Text(" Notification",
+        title: const Text(" Setting",
           style: TextStyle(
             // fontFamily: 'Sch',
             color: Colors.black,
