@@ -153,12 +153,13 @@ List img =[
                             children: [
                               SizedBox(height: 180,),
                               Container(
-                                height: 110,
+                                height: 130,
                                 width: 270,
                                 decoration: BoxDecoration(
                                   color: Colors.transparent,
                                 ),
                                 child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   children: [
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -215,7 +216,7 @@ List img =[
                                         ),
                                       ],
                                     ),
-                                    SizedBox(height: 6,),
+                                    // SizedBox(height: 6,),
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
@@ -228,11 +229,24 @@ List img =[
                                         ),),
                                       ],
                                     ),
-                                    SizedBox(height: 10,),
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        SizedBox(width: 18,),
+                                        SizedBox(width: 14,),
+                                        Text('    Liked by bhavyaAgrawal & 43 oth ',
+                                          style: TextStyle(
+                                            color: Colors.white60,
+                                            fontWeight: FontWeight.w400,
+                                            fontStyle: FontStyle.italic,
+                                            fontSize: 15,
+                                          ),),
+                                      ],
+                                    ),
+                                    SizedBox(height: 7,),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        SizedBox(width: 14,),
                                         Container(
                                           height: 28,
                                           width: 145,
@@ -241,7 +255,7 @@ List img =[
                                             borderRadius: BorderRadius.circular(12),
                                           ),
                                           child: Center(
-                                            child: Text('Follow',
+                                            child: Text('Original.audio',
                                               style: TextStyle(
                                                 fontSize: 15,
                                                 color: Colors.white,
